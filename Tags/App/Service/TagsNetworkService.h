@@ -9,6 +9,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Network.h"
+#import "Tag.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -16,6 +16,7 @@
 		264389931FE9F76400200D48 /* TagsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264389911FE9F76400200D48 /* TagsViewController.xib */; };
 		264389971FE9FF7600200D48 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389961FE9FF7600200D48 /* Network.m */; };
 		2643899B1FEA0FAD00200D48 /* TagsNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643899A1FEA0FAD00200D48 /* TagsNetworkService.m */; };
+		2643899E1FEA11C700200D48 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643899D1FEA11C700200D48 /* Tag.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		264389961FE9FF7600200D48 /* Network.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
 		264389991FEA0FAD00200D48 /* TagsNetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsNetworkService.h; sourceTree = "<group>"; };
 		2643899A1FEA0FAD00200D48 /* TagsNetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsNetworkService.m; sourceTree = "<group>"; };
+		2643899C1FEA11C700200D48 /* Tag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		2643899D1FEA11C700200D48 /* Tag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +136,18 @@
 			children = (
 				264389991FEA0FAD00200D48 /* TagsNetworkService.h */,
 				2643899A1FEA0FAD00200D48 /* TagsNetworkService.m */,
+				2643899F1FEA11CE00200D48 /* Entities */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		2643899F1FEA11CE00200D48 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2643899C1FEA11C700200D48 /* Tag.h */,
+				2643899D1FEA11C700200D48 /* Tag.m */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2643899E1FEA11C700200D48 /* Tag.m in Sources */,
 				2643899B1FEA0FAD00200D48 /* TagsNetworkService.m in Sources */,
 				264389921FE9F76400200D48 /* TagsViewController.m in Sources */,
 				2643897A1FE9F42100200D48 /* main.m in Sources */,

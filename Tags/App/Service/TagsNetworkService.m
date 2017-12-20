@@ -26,7 +26,15 @@ NS_ASSUME_NONNULL_BEGIN
     return self;
 }
 
-//- (void)tagsOnCompletion:(void (^)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error))completion
+- (void)tagsOnCompletion:(void (^)(NSArray<Tag *> * _Nullable tags, NSError * _Nullable error))completion {
+    
+    NSString *urlString = @"https://gist.githubusercontent.com/jgritman/7f2e89d1937ba9d9fc678f4c9844cbf1/raw/7ed77d47fd7c87ad0e6aca697251ae3974452f37/tags.json";
+    NSURL *tagsURL = [NSURL URLWithString:urlString];
+    [self.network jsonRequestWithURL:tagsURL onCompletion:^(JSONObject * _Nullable data,
+                                                            NSURLResponse * _Nullable response,
+                                                            NSError * _Nullable error) {
+    }];
+}
 
 @end
 
