@@ -15,12 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly) NSURLSession *session;
 
 typedef NSDictionary<NSString *, id> JSONObject;
+typedef NSArray<JSONObject *> JSONArray;
 
 - (NSURLSessionTask *)requestWithURL:(NSURL *)url onCompletion:(void (^)(NSData * _Nullable data,
                                                                          NSURLResponse * _Nullable response,
                                                                          NSError * _Nullable error))completion;
 
-- (NSURLSessionTask *)jsonRequestWithURL:(NSURL *)url onCompletion:(void (^)(JSONObject * _Nullable data,
+- (NSURLSessionTask *)jsonRequestWithURL:(NSURL *)url onCompletion:(void (^)(JSONArray * _Nullable jsonArray,
                                                                              NSURLResponse * _Nullable response,
                                                                              NSError * _Nullable error))completion;
 @end
@@ -28,6 +29,8 @@ typedef NSDictionary<NSString *, id> JSONObject;
 @interface Network : NSObject<NetworkType>
 
 @property (nonatomic, strong, readonly) NSURLSession *session;
+
+- (instancetype)initWithSession:(NSURLSession *)session;
 
 @end
 

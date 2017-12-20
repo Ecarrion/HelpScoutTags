@@ -41,15 +41,15 @@ NS_ASSUME_NONNULL_BEGIN
     return task;
 }
 
-- (NSURLSessionTask *)jsonRequestWithURL:(NSURL *)url onCompletion:(void (^)(JSONObject * _Nullable data,
+- (NSURLSessionTask *)jsonRequestWithURL:(NSURL *)url onCompletion:(void (^)(JSONArray * _Nullable jsonArray,
                                                                              NSURLResponse * _Nullable response,
                                                                              NSError * _Nullable error))completion {
     
     return [self requestWithURL:url onCompletion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
        
         NSError *jsonError;
-        JSONObject *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError];
-        completion(json, response, error);
+        JSONArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError];
+        completion(jsonArray, response, error);
     }];
 }
 

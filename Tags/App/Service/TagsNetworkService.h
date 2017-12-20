@@ -17,11 +17,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly) Network *network;
 
+- (void)tagsOnCompletion:(void (^)(NSArray<Tag *> * _Nullable tags, NSError * _Nullable error))completion;
+
 @end
 
 @interface TagsNetworkService : NSObject<TagsNetworkType>
 
 @property (nonatomic, strong, readonly) Network *network;
+
+- (instancetype)initWithNetwork:(Network *)network;
 
 @end
 

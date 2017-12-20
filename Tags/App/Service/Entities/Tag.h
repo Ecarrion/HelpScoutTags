@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, readonly) NSString *color;
 @property(nonatomic, strong, readonly) NSString *name;
 
+- (instancetype)initWithID:(NSNumber *)tagID color:(NSString *)color name:(NSString *)name;
+- (nullable instancetype)initWithDictionary:(NSDictionary<NSString *, id> *)dictionary;
+
 @end
 
 NS_ASSUME_NONNULL_END

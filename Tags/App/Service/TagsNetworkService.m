@@ -30,9 +30,24 @@ NS_ASSUME_NONNULL_BEGIN
     
     NSString *urlString = @"https://gist.githubusercontent.com/jgritman/7f2e89d1937ba9d9fc678f4c9844cbf1/raw/7ed77d47fd7c87ad0e6aca697251ae3974452f37/tags.json";
     NSURL *tagsURL = [NSURL URLWithString:urlString];
-    [self.network jsonRequestWithURL:tagsURL onCompletion:^(JSONObject * _Nullable data,
+    [self.network jsonRequestWithURL:tagsURL onCompletion:^(JSONArray * _Nullable jsonArray,
                                                             NSURLResponse * _Nullable response,
                                                             NSError * _Nullable error) {
+        if (error) {
+            completion(nil, error);
+            return;
+        }
+        
+        NSMutableArray<Tag *> *tags = [NSMutableArray array];
+        for (JSONObject *jsonObject in jsonArray) {
+            Tag *tag = [[Tag alloc] initWithDictionary:jsonObject];
+            if (tag) {
+                [tags addObject:tag];
+            }
+        }
+        
+        completion(tags, nil);
+        
     }];
 }
 
