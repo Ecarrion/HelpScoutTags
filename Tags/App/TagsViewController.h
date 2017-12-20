@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  TagsViewController.h
 //  Tags
 //
 //  Created by Ernesto Carrion on 12/19/17.
@@ -10,10 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface TagsViewController : UIViewController
 
 @end
 

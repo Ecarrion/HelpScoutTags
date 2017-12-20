@@ -12,6 +12,8 @@
 		264389771FE9F42100200D48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264389751FE9F42100200D48 /* LaunchScreen.storyboard */; };
 		2643897A1FE9F42100200D48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389791FE9F42100200D48 /* main.m */; };
 		264389841FE9F42100200D48 /* TagsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389831FE9F42100200D48 /* TagsTests.m */; };
+		264389921FE9F76400200D48 /* TagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389901FE9F76400200D48 /* TagsViewController.m */; };
+		264389931FE9F76400200D48 /* TagsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264389911FE9F76400200D48 /* TagsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,9 @@
 		2643897F1FE9F42100200D48 /* TagsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TagsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		264389831FE9F42100200D48 /* TagsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsTests.m; sourceTree = "<group>"; };
 		264389851FE9F42100200D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2643898F1FE9F76400200D48 /* TagsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsViewController.h; sourceTree = "<group>"; };
+		264389901FE9F76400200D48 /* TagsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsViewController.m; sourceTree = "<group>"; };
+		264389911FE9F76400200D48 /* TagsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +83,7 @@
 			children = (
 				2643896A1FE9F42100200D48 /* AppDelegate.h */,
 				2643896B1FE9F42100200D48 /* AppDelegate.m */,
+				2643898E1FE9F74B00200D48 /* App */,
 				264389731FE9F42100200D48 /* Assets.xcassets */,
 				264389751FE9F42100200D48 /* LaunchScreen.storyboard */,
 				264389781FE9F42100200D48 /* Info.plist */,
@@ -93,6 +99,16 @@
 				264389851FE9F42100200D48 /* Info.plist */,
 			);
 			path = TagsTests;
+			sourceTree = "<group>";
+		};
+		2643898E1FE9F74B00200D48 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2643898F1FE9F76400200D48 /* TagsViewController.h */,
+				264389901FE9F76400200D48 /* TagsViewController.m */,
+				264389911FE9F76400200D48 /* TagsViewController.xib */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				264389931FE9F76400200D48 /* TagsViewController.xib in Resources */,
 				264389771FE9F42100200D48 /* LaunchScreen.storyboard in Resources */,
 				264389741FE9F42100200D48 /* Assets.xcassets in Resources */,
 			);
@@ -196,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				264389921FE9F76400200D48 /* TagsViewController.m in Sources */,
 				2643897A1FE9F42100200D48 /* main.m in Sources */,
 				2643896C1FE9F42100200D48 /* AppDelegate.m in Sources */,
 			);
