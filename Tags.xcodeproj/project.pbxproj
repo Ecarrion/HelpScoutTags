@@ -14,6 +14,7 @@
 		264389841FE9F42100200D48 /* TagsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389831FE9F42100200D48 /* TagsTests.m */; };
 		264389921FE9F76400200D48 /* TagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389901FE9F76400200D48 /* TagsViewController.m */; };
 		264389931FE9F76400200D48 /* TagsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264389911FE9F76400200D48 /* TagsViewController.xib */; };
+		264389971FE9FF7600200D48 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389961FE9FF7600200D48 /* Network.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		2643898F1FE9F76400200D48 /* TagsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsViewController.h; sourceTree = "<group>"; };
 		264389901FE9F76400200D48 /* TagsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsViewController.m; sourceTree = "<group>"; };
 		264389911FE9F76400200D48 /* TagsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsViewController.xib; sourceTree = "<group>"; };
+		264389951FE9FF7600200D48 /* Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		264389961FE9FF7600200D48 /* Network.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +110,18 @@
 				2643898F1FE9F76400200D48 /* TagsViewController.h */,
 				264389901FE9F76400200D48 /* TagsViewController.m */,
 				264389911FE9F76400200D48 /* TagsViewController.xib */,
+				264389941FE9FEE900200D48 /* Network */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		264389941FE9FEE900200D48 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				264389951FE9FF7600200D48 /* Network.h */,
+				264389961FE9FF7600200D48 /* Network.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +228,7 @@
 			files = (
 				264389921FE9F76400200D48 /* TagsViewController.m in Sources */,
 				2643897A1FE9F42100200D48 /* main.m in Sources */,
+				264389971FE9FF7600200D48 /* Network.m in Sources */,
 				2643896C1FE9F42100200D48 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
