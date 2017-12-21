@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSString *color = dictionary[@"color"];
     NSString *name = dictionary[@"tag"];
     
-    if (!tagID || !color || !name) {
+    if (tagID == nil || !color || !name) {
         return nil;
     }
     

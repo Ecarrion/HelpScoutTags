@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol TagsNetworkType
 
-@property (readonly) Network *network;
+@property (readonly) NSObject<NetworkType> *network;
 
 - (void)tagsOnCompletion:(void (^)(NSArray<Tag *> * _Nullable tags, NSError * _Nullable error))completion;
 
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly) Network *network;
 
-- (instancetype)initWithNetwork:(Network *)network;
+- (instancetype)initWithNetwork:(NSObject<NetworkType> *)network;
 
 @end
 

@@ -11,12 +11,13 @@
 		264389741FE9F42100200D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264389731FE9F42100200D48 /* Assets.xcassets */; };
 		264389771FE9F42100200D48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264389751FE9F42100200D48 /* LaunchScreen.storyboard */; };
 		2643897A1FE9F42100200D48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389791FE9F42100200D48 /* main.m */; };
-		264389841FE9F42100200D48 /* TagsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389831FE9F42100200D48 /* TagsTests.m */; };
 		264389921FE9F76400200D48 /* TagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389901FE9F76400200D48 /* TagsViewController.m */; };
 		264389931FE9F76400200D48 /* TagsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264389911FE9F76400200D48 /* TagsViewController.xib */; };
 		264389971FE9FF7600200D48 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389961FE9FF7600200D48 /* Network.m */; };
 		2643899B1FEA0FAD00200D48 /* TagsNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643899A1FEA0FAD00200D48 /* TagsNetworkService.m */; };
 		2643899E1FEA11C700200D48 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643899D1FEA11C700200D48 /* Tag.m */; };
+		264389A11FEB3F0700200D48 /* TagsNetworkServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389A01FEB3F0700200D48 /* TagsNetworkServiceTests.m */; };
+		264389A61FEB3FED00200D48 /* NetworkMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389A51FEB3FED00200D48 /* NetworkMock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,6 @@
 		264389781FE9F42100200D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		264389791FE9F42100200D48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2643897F1FE9F42100200D48 /* TagsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TagsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		264389831FE9F42100200D48 /* TagsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsTests.m; sourceTree = "<group>"; };
 		264389851FE9F42100200D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2643898F1FE9F76400200D48 /* TagsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsViewController.h; sourceTree = "<group>"; };
 		264389901FE9F76400200D48 /* TagsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsViewController.m; sourceTree = "<group>"; };
@@ -49,6 +49,9 @@
 		2643899A1FEA0FAD00200D48 /* TagsNetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsNetworkService.m; sourceTree = "<group>"; };
 		2643899C1FEA11C700200D48 /* Tag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		2643899D1FEA11C700200D48 /* Tag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		264389A01FEB3F0700200D48 /* TagsNetworkServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsNetworkServiceTests.m; sourceTree = "<group>"; };
+		264389A41FEB3FED00200D48 /* NetworkMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkMock.h; sourceTree = "<group>"; };
+		264389A51FEB3FED00200D48 /* NetworkMock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkMock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +107,8 @@
 		264389821FE9F42100200D48 /* TagsTests */ = {
 			isa = PBXGroup;
 			children = (
-				264389831FE9F42100200D48 /* TagsTests.m */,
+				264389A01FEB3F0700200D48 /* TagsNetworkServiceTests.m */,
+				264389A71FEB3FEF00200D48 /* Mocks */,
 				264389851FE9F42100200D48 /* Info.plist */,
 			);
 			path = TagsTests;
@@ -148,6 +152,15 @@
 				2643899D1FEA11C700200D48 /* Tag.m */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		264389A71FEB3FEF00200D48 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				264389A41FEB3FED00200D48 /* NetworkMock.h */,
+				264389A51FEB3FED00200D48 /* NetworkMock.m */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +278,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				264389841FE9F42100200D48 /* TagsTests.m in Sources */,
+				264389A61FEB3FED00200D48 /* NetworkMock.m in Sources */,
+				264389A11FEB3F0700200D48 /* TagsNetworkServiceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
