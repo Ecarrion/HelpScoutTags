@@ -24,11 +24,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TagsInteractor : NSObject
 
 @property (nonatomic, weak) id<TagsInteractorDelegate> delegate;
+@property (nonatomic, strong, readonly) TagsViewModel * viewModel;
 
 - (instancetype)initWithNetwork:(NSObject<NetworkType> *)network;
 
 /// New tags will be delivered though the delegate methods
 - (void)requestTags;
+
+/// New tags will be delivered though the delegate methods
+- (void)selectTagAtIndex:(NSInteger)index;
 
 @end
 

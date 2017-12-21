@@ -17,7 +17,6 @@ static NSString * CellIdentifier = @"TagCell";
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) TagsInteractor *interactor;
-@property (nonatomic, strong) TagsViewModel *viewModel;
 
 @end
 
@@ -45,12 +44,12 @@ static NSString * CellIdentifier = @"TagCell";
 #pragma mark - TableView Delegates
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.viewModel.tagViewModels.count;
+    return self.interactor.viewModel.tagViewModels.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    TagViewModel *tagViewModel = self.viewModel.tagViewModels[indexPath.row];
+    TagViewModel *tagViewModel = self.interactor.viewModel.tagViewModels[indexPath.row];
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.textLabel.text = tagViewModel.name;
     return cell;
@@ -63,7 +62,6 @@ static NSString * CellIdentifier = @"TagCell";
 #pragma mark - Interactor Delegates
 
 - (void)interactor:(TagsInteractor *)interactor didUpdateViewModel:(TagsViewModel *)viewModel {
-    self.viewModel = viewModel;
     [self.tableView reloadData];
 }
 

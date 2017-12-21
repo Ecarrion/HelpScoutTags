@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TagsInteractor ()
 
 @property (nonatomic, strong, readwrite) TagsNetworkService *networkService;
+@property (nonatomic, strong, readwrite) TagsViewModel *viewModel;
 
 @end
 
@@ -43,8 +44,18 @@ NS_ASSUME_NONNULL_BEGIN
         }
         
         TagsViewModel *tagsViewModel = [[TagsViewModel alloc] initWithTags: viewModels.copy];
-        [weakSelf.delegate interactor:weakSelf didUpdateViewModel:tagsViewModel];
+        [weakSelf updateViewModel:tagsViewModel];
     }];
+}
+
+- (void)selectTagAtIndex:(NSInteger)index {
+    
+    
+}
+
+- (void)updateViewModel:(TagsViewModel *)viewModel {
+    self.viewModel = viewModel;
+    [self.delegate interactor:self didUpdateViewModel:self.viewModel];
 }
 
 @end
