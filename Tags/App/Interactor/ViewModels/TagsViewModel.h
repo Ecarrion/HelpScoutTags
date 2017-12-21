@@ -7,9 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Tag.h"
+#import "TagViewModel.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface TagsViewModel : NSObject
 
+@property (nonatomic, strong, readonly) NSArray<TagViewModel *> *tagViewModels;
+
+- (instancetype)initWithTags:(NSArray<TagViewModel *> *)tagViewModels;
 
 @end
+
+NS_ASSUME_NONNULL_END

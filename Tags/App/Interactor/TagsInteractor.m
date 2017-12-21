@@ -26,8 +26,23 @@ NS_ASSUME_NONNULL_BEGIN
     return self;
 }
 
-- (void)tagsOnCompletion:(void (^)(NSArray<Tag *> * _Nullable tags, NSError * _Nullable error))completion {
-    [self.networkService tagsOnCompletion: completion];
+- (void)tagsOnCompletion:(void (^)(TagsViewModel * _Nullable tags, NSError * _Nullable error))completion {
+    [self.networkService tagsOnCompletion:^(NSArray<Tag *> * _Nullable tags, NSError * _Nullable error) {
+        
+        if (error) {
+            completion(nil, error);
+            return;
+        }
+        
+        NSMutableArray *viewModels = [NSMutableArray array];
+        for (Tag *tag in tags) {
+            TagViewModel *viewModel = [[TagViewModel alloc] initWitnTag: tag isSelected: false];
+            [viewModels addObject:viewModel];
+        }
+        
+        TagsViewModel *tagsViewModel = [[TagsViewModel alloc] initWithTags: viewModels.copy];
+        completion(tagsViewModel, nil);
+    }];
 }
 
 @end

@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
             }
         }
         
-        completion(tags, nil);
+        completion([tags copy], nil);
         
     }];
 }

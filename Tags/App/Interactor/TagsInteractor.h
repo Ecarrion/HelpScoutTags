@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TagsNetworkService.h"
+#import "TagsViewModel.h"
 #import "Network.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -16,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithNetwork:(NSObject<NetworkType> *)network;
 
-- (void)tagsOnCompletion:(void (^)(NSArray<Tag *> * _Nullable tags, NSError * _Nullable error))completion;
+- (void)tagsOnCompletion:(void (^)(TagsViewModel * _Nullable tags, NSError * _Nullable error))completion;
 
 @end
 

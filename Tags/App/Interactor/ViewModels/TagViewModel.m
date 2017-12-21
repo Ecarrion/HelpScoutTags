@@ -9,6 +9,8 @@
 #import "TagViewModel.h"
 #import "UIColor+Hex.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TagViewModel ()
 
 @property(nonatomic, strong, readwrite) Tag *tag;
@@ -36,3 +38,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

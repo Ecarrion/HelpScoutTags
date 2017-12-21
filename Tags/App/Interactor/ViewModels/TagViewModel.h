@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "Tag.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TagViewModel : NSObject
 
 @property(nonatomic, strong, readonly) Tag *tag;
@@ -20,3 +22,5 @@
 - (UIColor *)backgroundColor;
 
 @end
+
+NS_ASSUME_NONNULL_END
