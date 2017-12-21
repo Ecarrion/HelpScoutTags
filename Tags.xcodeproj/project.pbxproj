@@ -20,6 +20,8 @@
 		264389A61FEB3FED00200D48 /* NetworkMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389A51FEB3FED00200D48 /* NetworkMock.m */; };
 		264389AB1FEB48AC00200D48 /* TagsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389AA1FEB48AC00200D48 /* TagsInteractor.m */; };
 		264389B21FEB4D4A00200D48 /* TagsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389B11FEB4D4A00200D48 /* TagsViewModel.m */; };
+		264389B51FEB4EFE00200D48 /* TagViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389B41FEB4EFE00200D48 /* TagViewModel.m */; };
+		264389BB1FEB529300200D48 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389BA1FEB529300200D48 /* UIColor+Hex.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		264389AA1FEB48AC00200D48 /* TagsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsInteractor.m; sourceTree = "<group>"; };
 		264389B01FEB4D4A00200D48 /* TagsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsViewModel.h; sourceTree = "<group>"; };
 		264389B11FEB4D4A00200D48 /* TagsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsViewModel.m; sourceTree = "<group>"; };
+		264389B31FEB4EFE00200D48 /* TagViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagViewModel.h; sourceTree = "<group>"; };
+		264389B41FEB4EFE00200D48 /* TagViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagViewModel.m; sourceTree = "<group>"; };
+		264389B91FEB529300200D48 /* UIColor+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		264389BA1FEB529300200D48 /* UIColor+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,7 @@
 				264389A81FEB489600200D48 /* Interactor */,
 				264389981FEA0F9800200D48 /* Services */,
 				264389941FE9FEE900200D48 /* Network */,
+				264389B71FEB524C00200D48 /* Utilities */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -185,8 +192,19 @@
 			children = (
 				264389B01FEB4D4A00200D48 /* TagsViewModel.h */,
 				264389B11FEB4D4A00200D48 /* TagsViewModel.m */,
+				264389B31FEB4EFE00200D48 /* TagViewModel.h */,
+				264389B41FEB4EFE00200D48 /* TagViewModel.m */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		264389B71FEB524C00200D48 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				264389B91FEB529300200D48 /* UIColor+Hex.h */,
+				264389BA1FEB529300200D48 /* UIColor+Hex.m */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +309,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				264389B51FEB4EFE00200D48 /* TagViewModel.m in Sources */,
+				264389BB1FEB529300200D48 /* UIColor+Hex.m in Sources */,
 				2643899E1FEA11C700200D48 /* Tag.m in Sources */,
 				2643899B1FEA0FAD00200D48 /* TagsNetworkService.m in Sources */,
 				264389921FE9F76400200D48 /* TagsViewController.m in Sources */,

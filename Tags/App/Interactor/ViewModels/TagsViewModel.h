@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Tag.h"
 
 @interface TagsViewModel : NSObject
+
 
 @end
