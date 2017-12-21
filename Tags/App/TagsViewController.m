@@ -71,6 +71,10 @@ static NSString * CellIdentifier = @"TagCell";
 
 - (void)interactor:(TagsInteractor *)interactor didUpdateViewModel:(TagsViewModel *)viewModel {
     [self.tableView reloadData];
+    
+    for (TagViewModel *tag in self.interactor.viewModel.selectedViewModels) {
+        NSLog(@"%@", tag.name);
+    }
 }
 
 @end
