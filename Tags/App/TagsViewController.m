@@ -51,12 +51,20 @@ static NSString * CellIdentifier = @"TagCell";
     
     TagViewModel *tagViewModel = self.interactor.viewModel.tagViewModels[indexPath.row];
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = tagViewModel.name;
+    
+    if (tagViewModel.isSelected) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Selected");
+    [self.interactor toggleTagSelectionAtIndex:indexPath.row];
 }
 
 #pragma mark - Interactor Delegates

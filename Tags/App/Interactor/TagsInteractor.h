@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestTags;
 
 /// New tags will be delivered though the delegate methods
-- (void)selectTagAtIndex:(NSInteger)index;
+- (void)toggleTagSelectionAtIndex:(NSInteger)index;
 
 @end
 

@@ -48,9 +48,16 @@ NS_ASSUME_NONNULL_BEGIN
     }];
 }
 
-- (void)selectTagAtIndex:(NSInteger)index {
+- (void)toggleTagSelectionAtIndex:(NSInteger)index {
     
+    TagViewModel *oldTag = self.viewModel.tagViewModels[index];
+    TagViewModel *selectedTag = [[TagViewModel alloc] initWitnTag:oldTag.tag isSelected:!oldTag.isSelected];
     
+    NSMutableArray<TagViewModel *> *tags = self.viewModel.tagViewModels.mutableCopy;
+    [tags replaceObjectAtIndex:index withObject:selectedTag];
+    
+    TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithTags:tags];
+    [self updateViewModel:newViewModel];
 }
 
 - (void)updateViewModel:(TagsViewModel *)viewModel {
