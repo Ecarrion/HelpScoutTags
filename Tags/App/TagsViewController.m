@@ -13,9 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 static NSString * CellIdentifier = @"TagCell";
 
-@interface TagsViewController ()<UITableViewDelegate, UITableViewDataSource, TagsInteractorDelegate>
+@interface TagsViewController ()<UITableViewDelegate, UITableViewDataSource, TagsInteractorDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+
 @property (nonatomic, strong) TagsInteractor *interactor;
 
 @end
@@ -39,6 +41,7 @@ static NSString * CellIdentifier = @"TagCell";
 
 - (void)registerCellClass {
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
 }
 
 #pragma mark - TableView Delegates
@@ -67,14 +70,26 @@ static NSString * CellIdentifier = @"TagCell";
     [self.interactor toggleTagSelectionAtIndex:indexPath.row];
 }
 
+#pragma mark - CollectionView Delegates
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.interactor.viewModel.selectedViewModels.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    TagViewModel *tagViewModel = self.interactor.viewModel.selectedViewModels[indexPath.row];
+    
+    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.backgroundColor = cell.contentView.backgroundColor = tagViewModel.backgroundColor;
+    return cell;
+}
+
 #pragma mark - Interactor Delegates
 
 - (void)interactor:(TagsInteractor *)interactor didUpdateViewModel:(TagsViewModel *)viewModel {
     [self.tableView reloadData];
-    
-    for (TagViewModel *tag in self.interactor.viewModel.selectedViewModels) {
-        NSLog(@"%@", tag.name);
-    }
+    [self.collectionView reloadData];
 }
 
 @end

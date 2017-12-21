@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TagsViewController">
             <connections>
+                <outlet property="collectionView" destination="D3a-Hg-IjU" id="jsi-El-JML"/>
                 <outlet property="tableView" destination="1c0-rh-P6b" id="sVH-Xo-Oan"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,8 +21,25 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="D3a-Hg-IjU">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="143" id="S0p-cB-BRX"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P9q-g9-ljw">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="NNU-He-BZn"/>
+                        <outlet property="delegate" destination="-1" id="dJ6-EI-oho"/>
+                    </connections>
+                </collectionView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1c0-rh-P6b">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="151" width="375" height="516"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="jYN-Si-cBu"/>
@@ -31,12 +49,16 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="D3a-Hg-IjU" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="1pD-uD-hxQ"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="1c0-rh-P6b" secondAttribute="trailing" id="6Tw-gH-74q"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="top" secondItem="1c0-rh-P6b" secondAttribute="top" constant="20" id="HTs-Ig-hNI"/>
+                <constraint firstItem="1c0-rh-P6b" firstAttribute="top" secondItem="D3a-Hg-IjU" secondAttribute="bottom" constant="8" id="71v-mX-auC"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="top" secondItem="D3a-Hg-IjU" secondAttribute="top" constant="20" id="JdW-VH-93l"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="1c0-rh-P6b" secondAttribute="bottom" id="emd-la-0xQ"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="D3a-Hg-IjU" secondAttribute="trailing" id="mBA-lK-TDO"/>
                 <constraint firstItem="1c0-rh-P6b" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="xu2-UC-Uao"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>
     </objects>
 </document>
