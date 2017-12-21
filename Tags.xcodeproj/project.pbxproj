@@ -18,6 +18,8 @@
 		2643899E1FEA11C700200D48 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643899D1FEA11C700200D48 /* Tag.m */; };
 		264389A11FEB3F0700200D48 /* TagsNetworkServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389A01FEB3F0700200D48 /* TagsNetworkServiceTests.m */; };
 		264389A61FEB3FED00200D48 /* NetworkMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389A51FEB3FED00200D48 /* NetworkMock.m */; };
+		264389AB1FEB48AC00200D48 /* TagsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389AA1FEB48AC00200D48 /* TagsInteractor.m */; };
+		264389B21FEB4D4A00200D48 /* TagsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389B11FEB4D4A00200D48 /* TagsViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,10 @@
 		264389A01FEB3F0700200D48 /* TagsNetworkServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsNetworkServiceTests.m; sourceTree = "<group>"; };
 		264389A41FEB3FED00200D48 /* NetworkMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkMock.h; sourceTree = "<group>"; };
 		264389A51FEB3FED00200D48 /* NetworkMock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkMock.m; sourceTree = "<group>"; };
+		264389A91FEB48AC00200D48 /* TagsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsInteractor.h; sourceTree = "<group>"; };
+		264389AA1FEB48AC00200D48 /* TagsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsInteractor.m; sourceTree = "<group>"; };
+		264389B01FEB4D4A00200D48 /* TagsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsViewModel.h; sourceTree = "<group>"; };
+		264389B11FEB4D4A00200D48 /* TagsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +126,8 @@
 				2643898F1FE9F76400200D48 /* TagsViewController.h */,
 				264389901FE9F76400200D48 /* TagsViewController.m */,
 				264389911FE9F76400200D48 /* TagsViewController.xib */,
-				264389981FEA0F9800200D48 /* Service */,
+				264389A81FEB489600200D48 /* Interactor */,
+				264389981FEA0F9800200D48 /* Services */,
 				264389941FE9FEE900200D48 /* Network */,
 			);
 			path = App;
@@ -135,14 +142,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		264389981FEA0F9800200D48 /* Service */ = {
+		264389981FEA0F9800200D48 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				264389991FEA0FAD00200D48 /* TagsNetworkService.h */,
 				2643899A1FEA0FAD00200D48 /* TagsNetworkService.m */,
 				2643899F1FEA11CE00200D48 /* Entities */,
 			);
-			path = Service;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		2643899F1FEA11CE00200D48 /* Entities */ = {
@@ -161,6 +168,25 @@
 				264389A51FEB3FED00200D48 /* NetworkMock.m */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		264389A81FEB489600200D48 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				264389A91FEB48AC00200D48 /* TagsInteractor.h */,
+				264389AA1FEB48AC00200D48 /* TagsInteractor.m */,
+				264389AF1FEB4D3C00200D48 /* ViewModels */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		264389AF1FEB4D3C00200D48 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				264389B01FEB4D4A00200D48 /* TagsViewModel.h */,
+				264389B11FEB4D4A00200D48 /* TagsViewModel.m */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +296,8 @@
 				264389921FE9F76400200D48 /* TagsViewController.m in Sources */,
 				2643897A1FE9F42100200D48 /* main.m in Sources */,
 				264389971FE9FF7600200D48 /* Network.m in Sources */,
+				264389B21FEB4D4A00200D48 /* TagsViewModel.m in Sources */,
+				264389AB1FEB48AC00200D48 /* TagsInteractor.m in Sources */,
 				2643896C1FE9F42100200D48 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

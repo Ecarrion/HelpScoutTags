@@ -7,29 +7,29 @@
 //
 
 #import "TagsViewController.h"
-#import "TagsNetworkService.h"
+#import "TagsInteractor.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TagsViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) TagsNetworkService *service;
+@property (strong, nonatomic) TagsInteractor *interactor;
 
 @end
 
 @implementation TagsViewController
 
+- (instancetype)initWithNetwork:(NSObject<NetworkType> *)network {
+    self = [super init];
+    if (self) {
+        self.interactor = [[TagsInteractor alloc] initWithNetwork: network];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    Network *network = [[Network alloc] initWithSession:NSURLSession.sharedSession];
-    self.service = [[TagsNetworkService alloc] initWithNetwork:network];
-    [self.service tagsOnCompletion:^(NSArray<Tag *> * _Nullable tags, NSError * _Nullable error) {
-        for (Tag *tag in tags) {
-            NSLog(@"%@", tag.name);
-        }
-    }];
 }
 
 @end

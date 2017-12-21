@@ -21,8 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    Network *network = [[Network alloc] initWithSession: NSURLSession.sharedSession];
     self.window = [[UIWindow alloc] initWithFrame: UIScreen.mainScreen.bounds];
-    self.window.rootViewController = [[TagsViewController alloc] init];
+    self.window.rootViewController = [[TagsViewController alloc] initWithNetwork:network];
     [self.window makeKeyAndVisible];
     
     return YES;
