@@ -11,10 +11,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TagsViewController ()
+static NSString * CellIdentifier = @"TagCell";
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) TagsInteractor *interactor;
+@interface TagsViewController ()<UITableViewDelegate, UITableViewDataSource, TagsInteractorDelegate>
+
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) TagsInteractor *interactor;
+@property (nonatomic, strong) TagsViewModel *viewModel;
 
 @end
 
@@ -24,12 +27,44 @@ NS_ASSUME_NONNULL_BEGIN
     self = [super init];
     if (self) {
         self.interactor = [[TagsInteractor alloc] initWithNetwork: network];
+        self.interactor.delegate = self;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self registerCellClass];
+    [self.interactor requestTags];
+}
+
+- (void)registerCellClass {
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
+}
+
+#pragma mark - TableView Delegates
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.viewModel.tagViewModels.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    TagViewModel *tagViewModel = self.viewModel.tagViewModels[indexPath.row];
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.textLabel.text = tagViewModel.name;
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Selected");
+}
+
+#pragma mark - Interactor Delegates
+
+- (void)interactor:(TagsInteractor *)interactor didUpdateViewModel:(TagsViewModel *)viewModel {
+    self.viewModel = viewModel;
+    [self.tableView reloadData];
 }
 
 @end

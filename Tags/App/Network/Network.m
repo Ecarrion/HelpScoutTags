@@ -34,7 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
     NSURLSessionTask *task = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data,
                                                                                    NSURLResponse * _Nullable response,
                                                                                    NSError * _Nullable error) {
-        completion(data, response, error);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(data, response, error);
+        });
     }];
     [task resume];
     

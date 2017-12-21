@@ -26,11 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
     return self;
 }
 
-- (void)tagsOnCompletion:(void (^)(TagsViewModel * _Nullable tags, NSError * _Nullable error))completion {
+- (void)requestTags {
+    
+    __weak TagsInteractor *weakSelf = self;
     [self.networkService tagsOnCompletion:^(NSArray<Tag *> * _Nullable tags, NSError * _Nullable error) {
         
         if (error) {
-            completion(nil, error);
+            // TODO: handle error in view model
             return;
         }
         
@@ -41,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
         }
         
         TagsViewModel *tagsViewModel = [[TagsViewModel alloc] initWithTags: viewModels.copy];
-        completion(tagsViewModel, nil);
+        [weakSelf.delegate interactor:weakSelf didUpdateViewModel:tagsViewModel];
     }];
 }
 

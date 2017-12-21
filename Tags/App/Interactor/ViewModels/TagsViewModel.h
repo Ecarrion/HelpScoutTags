@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TagsViewModel : NSObject
 
+// TODO: Represent error state
 @property (nonatomic, strong, readonly) NSArray<TagViewModel *> *tagViewModels;
 
 - (instancetype)initWithTags:(NSArray<TagViewModel *> *)tagViewModels;

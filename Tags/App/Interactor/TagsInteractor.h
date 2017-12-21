@@ -11,13 +11,24 @@
 #import "TagsViewModel.h"
 #import "Network.h"
 
+@class TagsInteractor;
+
 NS_ASSUME_NONNULL_BEGIN
+
+@protocol TagsInteractorDelegate
+
+- (void)interactor:(TagsInteractor *)interactor didUpdateViewModel:(TagsViewModel *)viewModel;
+
+@end
 
 @interface TagsInteractor : NSObject
 
+@property (nonatomic, weak) id<TagsInteractorDelegate> delegate;
+
 - (instancetype)initWithNetwork:(NSObject<NetworkType> *)network;
 
-- (void)tagsOnCompletion:(void (^)(TagsViewModel * _Nullable tags, NSError * _Nullable error))completion;
+/// New tags will be delivered though the delegate methods
+- (void)requestTags;
 
 @end
 
