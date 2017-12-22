@@ -60,6 +60,16 @@ NS_ASSUME_NONNULL_BEGIN
     [self updateViewModel:newViewModel];
 }
 
+- (void)deselectTag:(TagViewModel *)tagViewModel {
+    
+    if (!tagViewModel.isSelected) {
+        return;
+    }
+    
+    NSInteger tagIndex = [self.viewModel.tagViewModels indexOfObject:tagViewModel];
+    [self toggleTagSelectionAtIndex:tagIndex];
+}
+
 - (void)updateViewModel:(TagsViewModel *)viewModel {
     self.viewModel = viewModel;
     [self.delegate interactor:self didUpdateViewModel:self.viewModel];

@@ -34,6 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// New tags will be delivered though the delegate methods
 - (void)toggleTagSelectionAtIndex:(NSInteger)index;
 
+/// Deselects a tag from it's main viewModel
+- (void)deselectTag:(TagViewModel *)tagViewModel;
+
 @end
 
 NS_ASSUME_NONNULL_END

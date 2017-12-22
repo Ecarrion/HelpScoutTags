@@ -103,6 +103,11 @@ static NSString * CellIdentifier = @"TagCell";
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    TagViewModel *tagViewModel = self.interactor.viewModel.selectedViewModels[indexPath.row];
+    [self.interactor deselectTag:tagViewModel];
+}
+
 #pragma mark - Interactor Delegates
 
 - (void)interactor:(TagsInteractor *)interactor didUpdateViewModel:(TagsViewModel *)viewModel {
