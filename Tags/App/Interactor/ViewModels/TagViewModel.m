@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation TagViewModel
 
-- (instancetype)initWitnTag:(Tag *)tag isSelected:(Boolean)isSelected {
+- (instancetype)initWithTag:(Tag *)tag isSelected:(Boolean)isSelected {
     self = [super init];
     if (self) {
         self.tag = tag;

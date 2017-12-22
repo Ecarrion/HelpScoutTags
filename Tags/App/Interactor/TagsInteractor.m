@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
         
         NSMutableArray *viewModels = [NSMutableArray array];
         for (Tag *tag in tags) {
-            TagViewModel *viewModel = [[TagViewModel alloc] initWitnTag: tag isSelected: false];
+            TagViewModel *viewModel = [[TagViewModel alloc] initWithTag: tag isSelected: false];
             [viewModels addObject:viewModel];
         }
         
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)toggleTagSelectionAtIndex:(NSInteger)index {
     
     TagViewModel *oldTag = self.viewModel.tagViewModels[index];
-    TagViewModel *selectedTag = [[TagViewModel alloc] initWitnTag:oldTag.tag isSelected:!oldTag.isSelected];
+    TagViewModel *selectedTag = [[TagViewModel alloc] initWithTag:oldTag.tag isSelected:!oldTag.isSelected];
     
     NSMutableArray<TagViewModel *> *tags = self.viewModel.tagViewModels.mutableCopy;
     [tags replaceObjectAtIndex:index withObject:selectedTag];

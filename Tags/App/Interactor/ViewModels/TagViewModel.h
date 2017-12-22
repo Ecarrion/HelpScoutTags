@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, readonly) Tag *tag;
 @property(nonatomic, readonly) Boolean isSelected;
 
-- (instancetype)initWitnTag:(Tag *)tag isSelected:(Boolean)isSelected;
+- (instancetype)initWithTag:(Tag *)tag isSelected:(Boolean)isSelected;
 - (NSString *)name;
 - (UIColor *)backgroundColor;
 

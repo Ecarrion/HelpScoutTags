@@ -22,6 +22,9 @@
 		264389B21FEB4D4A00200D48 /* TagsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389B11FEB4D4A00200D48 /* TagsViewModel.m */; };
 		264389B51FEB4EFE00200D48 /* TagViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389B41FEB4EFE00200D48 /* TagViewModel.m */; };
 		264389BB1FEB529300200D48 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389BA1FEB529300200D48 /* UIColor+Hex.m */; };
+		264389BF1FEC836100200D48 /* TagViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389BE1FEC836100200D48 /* TagViewModelTests.m */; };
+		264389C11FEC9BF000200D48 /* TagsViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389C01FEC9BF000200D48 /* TagsViewModelTests.m */; };
+		264389C31FEC9EBB00200D48 /* TagsInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389C21FEC9EBB00200D48 /* TagsInteractorTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		264389B41FEB4EFE00200D48 /* TagViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagViewModel.m; sourceTree = "<group>"; };
 		264389B91FEB529300200D48 /* UIColor+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		264389BA1FEB529300200D48 /* UIColor+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		264389BE1FEC836100200D48 /* TagViewModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagViewModelTests.m; sourceTree = "<group>"; };
+		264389C01FEC9BF000200D48 /* TagsViewModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsViewModelTests.m; sourceTree = "<group>"; };
+		264389C21FEC9EBB00200D48 /* TagsInteractorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsInteractorTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				264389A01FEB3F0700200D48 /* TagsNetworkServiceTests.m */,
+				264389BE1FEC836100200D48 /* TagViewModelTests.m */,
+				264389C01FEC9BF000200D48 /* TagsViewModelTests.m */,
+				264389C21FEC9EBB00200D48 /* TagsInteractorTests.m */,
 				264389A71FEB3FEF00200D48 /* Mocks */,
 				264389851FE9F42100200D48 /* Info.plist */,
 			);
@@ -327,6 +336,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				264389A61FEB3FED00200D48 /* NetworkMock.m in Sources */,
+				264389C11FEC9BF000200D48 /* TagsViewModelTests.m in Sources */,
+				264389BF1FEC836100200D48 /* TagViewModelTests.m in Sources */,
+				264389C31FEC9EBB00200D48 /* TagsInteractorTests.m in Sources */,
 				264389A11FEB3F0700200D48 /* TagsNetworkServiceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
