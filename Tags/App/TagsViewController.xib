@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TagsViewController">
             <connections>
                 <outlet property="collectionView" destination="D3a-Hg-IjU" id="jsi-El-JML"/>
+                <outlet property="searchBar" destination="wn1-Ke-W4H" id="E62-9Q-jNF"/>
                 <outlet property="tableView" destination="1c0-rh-P6b" id="sVH-Xo-Oan"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,8 +22,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <searchBar contentMode="redraw" placeholder="Search Tags" translatesAutoresizingMaskIntoConstraints="NO" id="wn1-Ke-W4H">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="a6T-IO-s5k"/>
+                    </connections>
+                </searchBar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3a-Hg-IjU">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
+                    <rect key="frame" x="0.0" y="56" width="375" height="143"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="143" id="S0p-cB-BRX"/>
@@ -38,8 +46,8 @@
                         <outlet property="delegate" destination="-1" id="dJ6-EI-oho"/>
                     </connections>
                 </collectionView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1c0-rh-P6b">
-                    <rect key="frame" x="0.0" y="151" width="375" height="516"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1c0-rh-P6b">
+                    <rect key="frame" x="0.0" y="207" width="375" height="460"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="jYN-Si-cBu"/>
@@ -52,8 +60,11 @@
                 <constraint firstItem="D3a-Hg-IjU" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="1pD-uD-hxQ"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="1c0-rh-P6b" secondAttribute="trailing" id="6Tw-gH-74q"/>
                 <constraint firstItem="1c0-rh-P6b" firstAttribute="top" secondItem="D3a-Hg-IjU" secondAttribute="bottom" constant="8" id="71v-mX-auC"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="top" secondItem="D3a-Hg-IjU" secondAttribute="top" constant="20" id="JdW-VH-93l"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="top" secondItem="wn1-Ke-W4H" secondAttribute="top" constant="20" id="KuB-SL-GDS"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="wn1-Ke-W4H" secondAttribute="trailing" id="XFA-NG-FkQ"/>
+                <constraint firstItem="wn1-Ke-W4H" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="ch5-ro-7dT"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="1c0-rh-P6b" secondAttribute="bottom" id="emd-la-0xQ"/>
+                <constraint firstItem="D3a-Hg-IjU" firstAttribute="top" secondItem="wn1-Ke-W4H" secondAttribute="bottom" id="fxL-ES-mn5"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="D3a-Hg-IjU" secondAttribute="trailing" id="mBA-lK-TDO"/>
                 <constraint firstItem="1c0-rh-P6b" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="xu2-UC-Uao"/>
             </constraints>

@@ -37,6 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Deselects a tag from it's main viewModel
 - (void)deselectTag:(TagViewModel *)tagViewModel;
 
+/// Filter Tags by search query
+- (void)filtertTagsByQuery:(NSString *)query;
+
 @end
 
 NS_ASSUME_NONNULL_END

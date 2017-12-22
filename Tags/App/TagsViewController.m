@@ -14,10 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 static NSString * CellIdentifier = @"TagCell";
 
-@interface TagsViewController ()<UITableViewDelegate, UITableViewDataSource, TagsInteractorDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface TagsViewController ()<UITableViewDelegate, UITableViewDataSource, TagsInteractorDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (nonatomic, strong) TagsInteractor *interactor;
 
@@ -106,6 +107,16 @@ static NSString * CellIdentifier = @"TagCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     TagViewModel *tagViewModel = self.interactor.viewModel.selectedViewModels[indexPath.row];
     [self.interactor deselectTag:tagViewModel];
+}
+
+#pragma mark - Search Bar
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self.interactor filtertTagsByQuery:searchText];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self.searchBar resignFirstResponder];
 }
 
 #pragma mark - Interactor Delegates
