@@ -7,6 +7,7 @@
 //
 
 #import "TagsViewController.h"
+#import "TagCollectionCell.h"
 #import "TagsInteractor.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -41,7 +42,7 @@ static NSString * CellIdentifier = @"TagCell";
 
 - (void)registerCellClass {
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"TagCollectionCell" bundle:nil] forCellWithReuseIdentifier:TagCollectionCellID];
 }
 
 #pragma mark - TableView Delegates
@@ -76,12 +77,29 @@ static NSString * CellIdentifier = @"TagCell";
     return self.interactor.viewModel.selectedViewModels.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    static TagCollectionCell *sizingCell = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sizingCell = [[[UINib nibWithNibName:@"TagCollectionCell" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
+    });
     
     TagViewModel *tagViewModel = self.interactor.viewModel.selectedViewModels[indexPath.row];
-    
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = cell.contentView.backgroundColor = tagViewModel.backgroundColor;
+    sizingCell.nameLabel.text = tagViewModel.name;
+    sizingCell.backgroundColor = tagViewModel.backgroundColor;
+    [sizingCell setNeedsLayout];
+    [sizingCell layoutIfNeeded];
+    return [sizingCell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    TagViewModel *tagViewModel = self.interactor.viewModel.selectedViewModels[indexPath.row];
+    TagCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:TagCollectionCellID forIndexPath:indexPath];
+    cell.nameLabel.text = tagViewModel.name;
+    cell.backgroundColor = tagViewModel.backgroundColor;
     return cell;
 }
 

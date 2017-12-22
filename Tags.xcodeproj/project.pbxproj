@@ -25,6 +25,8 @@
 		264389BF1FEC836100200D48 /* TagViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389BE1FEC836100200D48 /* TagViewModelTests.m */; };
 		264389C11FEC9BF000200D48 /* TagsViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389C01FEC9BF000200D48 /* TagsViewModelTests.m */; };
 		264389C31FEC9EBB00200D48 /* TagsInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389C21FEC9EBB00200D48 /* TagsInteractorTests.m */; };
+		264389C81FECA4DA00200D48 /* TagCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389C61FECA4DA00200D48 /* TagCollectionCell.m */; };
+		264389C91FECA4DA00200D48 /* TagCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264389C71FECA4DA00200D48 /* TagCollectionCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,9 @@
 		264389BE1FEC836100200D48 /* TagViewModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagViewModelTests.m; sourceTree = "<group>"; };
 		264389C01FEC9BF000200D48 /* TagsViewModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsViewModelTests.m; sourceTree = "<group>"; };
 		264389C21FEC9EBB00200D48 /* TagsInteractorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsInteractorTests.m; sourceTree = "<group>"; };
+		264389C51FECA4DA00200D48 /* TagCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagCollectionCell.h; sourceTree = "<group>"; };
+		264389C61FECA4DA00200D48 /* TagCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagCollectionCell.m; sourceTree = "<group>"; };
+		264389C71FECA4DA00200D48 /* TagCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +146,7 @@
 				2643898F1FE9F76400200D48 /* TagsViewController.h */,
 				264389901FE9F76400200D48 /* TagsViewController.m */,
 				264389911FE9F76400200D48 /* TagsViewController.xib */,
+				264389C41FECA48E00200D48 /* Views */,
 				264389A81FEB489600200D48 /* Interactor */,
 				264389981FEA0F9800200D48 /* Services */,
 				264389941FE9FEE900200D48 /* Network */,
@@ -214,6 +220,16 @@
 				264389BA1FEB529300200D48 /* UIColor+Hex.m */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		264389C41FECA48E00200D48 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				264389C51FECA4DA00200D48 /* TagCollectionCell.h */,
+				264389C61FECA4DA00200D48 /* TagCollectionCell.m */,
+				264389C71FECA4DA00200D48 /* TagCollectionCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +316,7 @@
 			files = (
 				264389931FE9F76400200D48 /* TagsViewController.xib in Resources */,
 				264389771FE9F42100200D48 /* LaunchScreen.storyboard in Resources */,
+				264389C91FECA4DA00200D48 /* TagCollectionCell.xib in Resources */,
 				264389741FE9F42100200D48 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +340,7 @@
 				2643899E1FEA11C700200D48 /* Tag.m in Sources */,
 				2643899B1FEA0FAD00200D48 /* TagsNetworkService.m in Sources */,
 				264389921FE9F76400200D48 /* TagsViewController.m in Sources */,
+				264389C81FECA4DA00200D48 /* TagCollectionCell.m in Sources */,
 				2643897A1FE9F42100200D48 /* main.m in Sources */,
 				264389971FE9FF7600200D48 /* Network.m in Sources */,
 				264389B21FEB4D4A00200D48 /* TagsViewModel.m in Sources */,
