@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
-            <string>HelveticaNeue-Medium</string>
+            <string>HelveticaNeue-Bold</string>
         </array>
     </customFonts>
     <objects>
@@ -26,13 +26,13 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="745" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQY-Yg-iJF">
                         <rect key="frame" x="8" y="8" width="39" height="22"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hy-MR-WVb">
-                        <rect key="frame" x="54" y="6.5" width="11" height="23.5"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hy-MR-WVb">
+                        <rect key="frame" x="54" y="8" width="11" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -41,7 +41,7 @@
             <color key="backgroundColor" red="0.52941176469999995" green="0.78823529410000004" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="dQY-Yg-iJF" firstAttribute="leading" secondItem="SEy-5g-ep8" secondAttribute="leading" constant="8" id="3hp-Lr-6jy"/>
-                <constraint firstItem="1hy-MR-WVb" firstAttribute="centerY" secondItem="dQY-Yg-iJF" secondAttribute="centerY" id="Fj4-Up-7Px"/>
+                <constraint firstItem="1hy-MR-WVb" firstAttribute="centerY" secondItem="dQY-Yg-iJF" secondAttribute="centerY" constant="-0.5" id="Fj4-Up-7Px"/>
                 <constraint firstItem="SEy-5g-ep8" firstAttribute="bottom" secondItem="dQY-Yg-iJF" secondAttribute="bottom" constant="8" id="V1z-ll-wpy"/>
                 <constraint firstItem="dQY-Yg-iJF" firstAttribute="top" secondItem="SEy-5g-ep8" secondAttribute="top" constant="8" id="d9x-WS-DGC"/>
                 <constraint firstItem="SEy-5g-ep8" firstAttribute="trailing" secondItem="1hy-MR-WVb" secondAttribute="trailing" constant="8" id="il8-D9-4Si"/>

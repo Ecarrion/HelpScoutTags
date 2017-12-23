@@ -15,6 +15,8 @@ NSString *const TagCollectionCellID = @"TagCollectionCellIdentifier";
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.layer.cornerRadius = 4.0;
+    self.layer.masksToBounds = YES;
 }
 
 -(void)prepareForReuse {
