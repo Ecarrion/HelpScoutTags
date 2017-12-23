@@ -9,6 +9,7 @@
 #import "TagsViewController.h"
 #import "TagCollectionCell.h"
 #import "TagsInteractor.h"
+#import "UICollectionViewLeftAlignedLayout.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -40,12 +41,23 @@ static NSString * CellIdentifier = @"TagCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self registerCellClass];
+    [self configureCollectionView];
     [self.interactor requestTags];
 }
 
 - (void)registerCellClass {
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
     [self.collectionView registerNib:[UINib nibWithNibName:@"TagCollectionCell" bundle:nil] forCellWithReuseIdentifier:TagCollectionCellID];
+}
+
+- (void)configureCollectionView {
+    
+    UICollectionViewLeftAlignedLayout *layout = [[UICollectionViewLeftAlignedLayout alloc] init];
+    layout.minimumInteritemSpacing = 8;
+    layout.minimumInteritemSpacing = 8;
+    layout.sectionInset = UIEdgeInsetsMake(10, 14, 10, 14);
+    
+    self.collectionView.collectionViewLayout = layout;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -150,7 +162,6 @@ static NSString * CellIdentifier = @"TagCell";
 
 - (void)interactor:(TagsInteractor *)interactor didUpdateViewModel:(TagsViewModel *)viewModel {
     [self.tableView reloadData];
-    [self.collectionView reloadData];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self adjustCollectionViewHeight];

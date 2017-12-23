@@ -27,6 +27,7 @@
 		264389C31FEC9EBB00200D48 /* TagsInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389C21FEC9EBB00200D48 /* TagsInteractorTests.m */; };
 		264389C81FECA4DA00200D48 /* TagCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389C61FECA4DA00200D48 /* TagCollectionCell.m */; };
 		264389C91FECA4DA00200D48 /* TagCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264389C71FECA4DA00200D48 /* TagCollectionCell.xib */; };
+		26ADF5BF1FEE17EC009E8517 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26ADF5BD1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		264389C51FECA4DA00200D48 /* TagCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagCollectionCell.h; sourceTree = "<group>"; };
 		264389C61FECA4DA00200D48 /* TagCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagCollectionCell.m; sourceTree = "<group>"; };
 		264389C71FECA4DA00200D48 /* TagCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionCell.xib; sourceTree = "<group>"; };
+		26ADF5BD1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICollectionViewLeftAlignedLayout.m; path = "../../../../../../Desktop/UICollectionViewLeftAlignedLayout-master/UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.m"; sourceTree = "<group>"; };
+		26ADF5BE1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICollectionViewLeftAlignedLayout.h; path = "../../../../../../Desktop/UICollectionViewLeftAlignedLayout-master/UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,7 @@
 				2643896A1FE9F42100200D48 /* AppDelegate.h */,
 				2643896B1FE9F42100200D48 /* AppDelegate.m */,
 				2643898E1FE9F74B00200D48 /* App */,
+				26ADF5BC1FEE179D009E8517 /* External */,
 				264389731FE9F42100200D48 /* Assets.xcassets */,
 				264389751FE9F42100200D48 /* LaunchScreen.storyboard */,
 				264389781FE9F42100200D48 /* Info.plist */,
@@ -232,6 +236,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		26ADF5BC1FEE179D009E8517 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				26ADF5BE1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.h */,
+				26ADF5BD1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.m */,
+			);
+			name = External;
+			path = App/External;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -339,6 +353,7 @@
 				264389BB1FEB529300200D48 /* UIColor+Hex.m in Sources */,
 				2643899E1FEA11C700200D48 /* Tag.m in Sources */,
 				2643899B1FEA0FAD00200D48 /* TagsNetworkService.m in Sources */,
+				26ADF5BF1FEE17EC009E8517 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				264389921FE9F76400200D48 /* TagsViewController.m in Sources */,
 				264389C81FECA4DA00200D48 /* TagCollectionCell.m in Sources */,
 				2643897A1FE9F42100200D48 /* main.m in Sources */,
