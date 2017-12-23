@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSArray<TagViewModel *> *tagViewModels;
 @property (nonatomic, strong, readonly) NSArray<TagViewModel *> *selectedViewModels;
 
-- (instancetype)initWithTags:(NSArray<TagViewModel *> *)tagViewModels;
+- (instancetype)initWithListedTags:(NSArray<TagViewModel *> *)listedTags fromAllTags:(NSArray<TagViewModel *> *)allTags;
 
 @end
 

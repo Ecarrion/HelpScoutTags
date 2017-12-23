@@ -44,23 +44,34 @@ NS_ASSUME_NONNULL_BEGIN
             [self.tags addObject:viewModel];
         }
         
-        TagsViewModel *tagsViewModel = [[TagsViewModel alloc] initWithTags:self.tags.copy];
+        TagsViewModel *tagsViewModel = [[TagsViewModel alloc] initWithListedTags:self.tags.copy fromAllTags:self.tags.copy];
         [weakSelf updateViewModel:tagsViewModel];
     }];
 }
 
-- (void)toggleTagSelectionAtIndex:(NSInteger)index {
+- (void)toggleSelectionOfTag:(TagViewModel *)tagViewModel {
     
-    TagViewModel *oldTag = self.viewModel.tagViewModels[index];
-    TagViewModel *selectedTag = [[TagViewModel alloc] initWithTag:oldTag.tag isSelected:!oldTag.isSelected];
+    // If tag is not found return
+    NSInteger indexInFullTags = [self.tags indexOfObject:tagViewModel];
+    if (indexInFullTags == NSNotFound) {
+        return;
+    }
     
-    NSInteger indexInFullTags = [self.tags indexOfObject:oldTag];
-    [self.tags replaceObjectAtIndex:indexInFullTags withObject:selectedTag];
+    // Toggle selection on tag
+    TagViewModel *toggledTag = [[TagViewModel alloc] initWithTag:tagViewModel.tag isSelected:!tagViewModel.isSelected];
     
-    NSMutableArray<TagViewModel *> *curatedTags = self.viewModel.tagViewModels.mutableCopy;
-    [curatedTags replaceObjectAtIndex:index withObject:selectedTag];
+    //Replace in array of full tags
+    [self.tags replaceObjectAtIndex:indexInFullTags withObject:toggledTag];
     
-    TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithTags:curatedTags.copy];
+    // Replace in array of listed tags
+    NSInteger indexOnListedTags = [self.viewModel.tagViewModels indexOfObject:tagViewModel];
+    NSMutableArray<TagViewModel *> *listedTags = self.viewModel.tagViewModels.mutableCopy;
+    if (indexOnListedTags != NSNotFound) {
+        [listedTags replaceObjectAtIndex:indexOnListedTags withObject:toggledTag];
+    }
+    
+    // Update the view model
+    TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithListedTags:listedTags.copy fromAllTags:self.tags.copy];
     [self updateViewModel:newViewModel];
 }
 
@@ -70,15 +81,14 @@ NS_ASSUME_NONNULL_BEGIN
         return;
     }
     
-    // TODO: Handle when tag is not inside displayedViewModels
-    NSInteger tagIndex = [self.viewModel.tagViewModels indexOfObject:tagViewModel];
-    [self toggleTagSelectionAtIndex:tagIndex];
+    [self toggleSelectionOfTag:tagViewModel];
 }
 
 - (void)filtertTagsByQuery:(NSString *)query {
     
+    // If there is no search query, return a viewModel with all tags
     if (query.length == 0) {
-        TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithTags:self.tags.copy];
+        TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithListedTags:self.tags.copy fromAllTags:self.tags.copy];
         [self updateViewModel:newViewModel];
         return;
     }
@@ -87,9 +97,9 @@ NS_ASSUME_NONNULL_BEGIN
         return [tagViewModel.name localizedCaseInsensitiveContainsString:query];
     }];
     
-    // TODO: handle showing tags that are not filtered
+    // Filter tags using a a case insensitive compare
     NSArray<TagViewModel *> *filteredTags = [self.tags filteredArrayUsingPredicate:searchPredicate];
-    TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithTags:filteredTags];
+    TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithListedTags:filteredTags fromAllTags:self.tags.copy];
     [self updateViewModel:newViewModel];
 }
 

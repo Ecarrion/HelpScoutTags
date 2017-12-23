@@ -19,11 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation TagsViewModel
 
-- (instancetype)initWithTags:(NSArray<TagViewModel *> *)tagViewModels {
+- (instancetype)initWithListedTags:(NSArray<TagViewModel *> *)listedTags fromAllTags:(NSArray<TagViewModel *> *)allTags {
+
     self = [super init];
     if (self) {
-        self.tagViewModels = tagViewModels;
-        self.selectedViewModels = [self selectedAndSortedArrayFrom:tagViewModels];
+        self.tagViewModels = listedTags;
+        self.selectedViewModels = [self selectedAndSortedArrayFrom:allTags];
     }
     return self;
 }

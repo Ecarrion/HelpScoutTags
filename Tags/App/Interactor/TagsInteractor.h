@@ -31,13 +31,16 @@ NS_ASSUME_NONNULL_BEGIN
 /// New tags will be delivered though the delegate methods
 - (void)requestTags;
 
-/// New tags will be delivered though the delegate methods
-- (void)toggleTagSelectionAtIndex:(NSInteger)index;
+/// Toggle the selection state of tag,
+/// New tags will be delivered through the delegate methods.
+- (void)toggleSelectionOfTag:(TagViewModel *)tagViewModel;
 
-/// Deselects a tag from it's main viewModel
+/// Deselects a tag
+/// New tags will be delivered through the delegate methods.
 - (void)deselectTag:(TagViewModel *)tagViewModel;
 
 /// Filter Tags by search query
+/// New tags will be delivered through the delegate methods.
 - (void)filtertTagsByQuery:(NSString *)query;
 
 @end

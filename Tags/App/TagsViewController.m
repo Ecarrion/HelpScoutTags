@@ -69,7 +69,8 @@ static NSString * CellIdentifier = @"TagCell";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.interactor toggleTagSelectionAtIndex:indexPath.row];
+    TagViewModel *tagViewModel = self.interactor.viewModel.tagViewModels[indexPath.row];
+    [self.interactor toggleSelectionOfTag:tagViewModel];
 }
 
 #pragma mark - CollectionView Delegates
