@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
                          @{@"id" : @5, @"color" : @"804181", @"tag" : @"stew"},
                          @{@"id" : @6, @"color" : @"c6e627", @"tag" : @"arnica_bud"},
                          @{@"id" : @7, @"color" : @"804181", @"tag" : @"tobacco_mosaic"},
-                         @{@"id" : @8, @"color" : @"c6e627", @"tag" : @"6fb8ce"}];
+                         @{@"id" : @8, @"color" : @"c6e627", @"tag" : @"kino"}];
     
     self.sut = [[TagsInteractor alloc] initWithNetwork:network];
     self.delegate = [[InteractorDelegate alloc] init];
@@ -62,19 +62,44 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (void)testSelectingTags {
-    [self.sut toggleTagSelectionAtIndex:1];
-    [self.sut toggleTagSelectionAtIndex:2];
+    [self.sut toggleSelectionOfTag:self.sut.viewModel.tagViewModels[1]];
+    [self.sut toggleSelectionOfTag:self.sut.viewModel.tagViewModels[2]];
+    
     XCTAssertEqual(self.delegate.lastViewModel.selectedViewModels.count, 2);
     XCTAssertEqual(self.delegate.lastViewModel.selectedViewModels[0].tag.tagID, @3);
     XCTAssertEqual(self.delegate.lastViewModel.selectedViewModels[1].tag.tagID, @2);
 }
 
 - (void)testUnselectingTags {
-    [self.sut toggleTagSelectionAtIndex:1];
-    [self.sut toggleTagSelectionAtIndex:2];
-    [self.sut toggleTagSelectionAtIndex:1];
+    [self.sut toggleSelectionOfTag:self.sut.viewModel.tagViewModels[1]];
+    [self.sut toggleSelectionOfTag:self.sut.viewModel.tagViewModels[2]];
+    [self.sut toggleSelectionOfTag:self.sut.viewModel.tagViewModels[1]];
+    
     XCTAssertEqual(self.delegate.lastViewModel.selectedViewModels.count, 1);
     XCTAssertEqual(self.delegate.lastViewModel.selectedViewModels[0].tag.tagID, @3);
+}
+
+- (void)testFilteringBySearchQuery {
+    [self.sut filtertTagsByQuery:@"al"];
+    
+    XCTAssertEqual(self.delegate.lastViewModel.tagViewModels.count, 2);
+    XCTAssertEqual(self.delegate.lastViewModel.tagViewModels[0].name, @"knuckleball");
+    XCTAssertEqual(self.delegate.lastViewModel.tagViewModels[1].name, @"scandal");
+}
+
+- (void)testFilteringViewModelsDontRemovesSelectedViewModels {
+    
+    [self.sut toggleSelectionOfTag:self.sut.viewModel.tagViewModels[1]];
+    [self.sut toggleSelectionOfTag:self.sut.viewModel.tagViewModels[2]];
+    [self.sut filtertTagsByQuery:@"al"];
+    
+    XCTAssertEqual(self.delegate.lastViewModel.selectedViewModels.count, 2);
+    XCTAssertEqual(self.delegate.lastViewModel.selectedViewModels[0].tag.tagID, @3);
+    XCTAssertEqual(self.delegate.lastViewModel.selectedViewModels[1].tag.tagID, @2);
+    
+    XCTAssertEqual(self.delegate.lastViewModel.tagViewModels.count, 2);
+    XCTAssertEqual(self.delegate.lastViewModel.tagViewModels[0].name, @"knuckleball");
+    XCTAssertEqual(self.delegate.lastViewModel.tagViewModels[1].name, @"scandal");
 }
 
 @end
