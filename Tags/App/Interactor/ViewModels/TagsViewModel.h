@@ -19,9 +19,13 @@ typedef enum : NSUInteger {
 
 @interface TagsViewModel : NSObject
 
-// TODO: Represent error state
+/// Tags to be displayed in the table view
 @property (nonatomic, strong, readonly) NSArray<TagViewModel *> *tagViewModels;
+
+/// Selected tags to be displayed in the collectionView
 @property (nonatomic, strong, readonly) NSArray<TagViewModel *> *selectedViewModels;
+
+/// Current state of the view
 @property (nonatomic, readonly) State state;
 
 - (instancetype)initWithListedTags:(NSArray<TagViewModel *> *)listedTags
