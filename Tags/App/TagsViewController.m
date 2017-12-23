@@ -29,10 +29,10 @@ static NSString * CellIdentifier = @"TagCell";
 
 @implementation TagsViewController
 
-- (instancetype)initWithNetwork:(NSObject<NetworkType> *)network {
+- (instancetype)initWithInteractor:(TagsInteractor *)interactor {
     self = [super init];
     if (self) {
-        self.interactor = [[TagsInteractor alloc] initWithNetwork: network];
+        self.interactor = interactor;
         self.interactor.delegate = self;
     }
     return self;

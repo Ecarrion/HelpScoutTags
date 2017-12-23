@@ -11,10 +11,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TagsStorageService : NSObject
+@protocol TagsStorageType
 
 - (void)storeSelectedTags:(NSArray<Tag *> *)tags;
 - (NSArray<Tag *> *)loadSelectedTags;
+
+@end
+
+@interface TagsStorageService : NSObject <TagsStorageType>
 
 @end
 

@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TagsInteractor.h"
 #import "Network.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TagsViewController : UIViewController
 
-- (instancetype)initWithNetwork:(NSObject<NetworkType> *)network;
+- (instancetype)initWithInteractor:(TagsInteractor *)interactor;
 
 @end
 

@@ -28,7 +28,7 @@
     TagViewModel *tagVM4 = [[TagViewModel alloc] initWithTag:tag4 isSelected:NO];
     
     NSArray<TagViewModel *> *allTags = @[tagVM1, tagVM2, tagVM3, tagVM4];
-    TagsViewModel *tagsViewModel = [[TagsViewModel alloc] initWithListedTags:allTags fromAllTags:allTags];
+    TagsViewModel *tagsViewModel = [[TagsViewModel alloc] initWithListedTags:allTags fromAllTags:allTags andState:Loaded];
     NSArray<TagViewModel *> *expectedArray = @[tagVM3, tagVM2]; // Filter notSelected and sort them by name
     XCTAssertEqualObjects(tagsViewModel.selectedViewModels, expectedArray);
 }

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TagsInteractor ()
 
 @property (nonatomic, strong, readwrite) TagsNetworkService *networkService;
-@property (nonatomic, strong, readwrite) TagsStorageService *storageService;
+@property (nonatomic, strong, readwrite) NSObject<TagsStorageType> *storageService;
 
 @property (nonatomic, strong, readwrite) TagsViewModel *viewModel;
 @property (nonatomic, strong, readwrite) NSMutableArray<TagViewModel *> *tags;
@@ -23,11 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation TagsInteractor
 
-- (instancetype)initWithNetwork:(NSObject<NetworkType> *)network {
+- (instancetype)initWithNetwork:(NSObject<NetworkType> *)network andTagsService:(nonnull NSObject<TagsStorageType> *)storageService {
     self = [super init];
     if (self) {
         self.networkService = [[TagsNetworkService alloc] initWithNetwork: network];
-        self.storageService = [[TagsStorageService alloc] init];
+        self.storageService = storageService;
     }
     return self;
 }

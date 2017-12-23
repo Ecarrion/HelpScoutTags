@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "TagsInteractor.h"
 #import "NetworkMock.h"
+#import "StorageMock.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -49,7 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
                          @{@"id" : @7, @"color" : @"804181", @"tag" : @"tobacco_mosaic"},
                          @{@"id" : @8, @"color" : @"c6e627", @"tag" : @"kino"}];
     
-    self.sut = [[TagsInteractor alloc] initWithNetwork:network];
+    StorageMock *storage = [[StorageMock alloc] init];
+    
+    self.sut = [[TagsInteractor alloc] initWithNetwork:network andTagsService:storage];
     self.delegate = [[InteractorDelegate alloc] init];
     self.sut.delegate = self.delegate;
     [self.sut requestTags];

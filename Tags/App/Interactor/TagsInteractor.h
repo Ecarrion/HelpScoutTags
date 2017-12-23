@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "TagsNetworkService.h"
+#import "TagsStorageService.h"
 #import "TagsViewModel.h"
-#import "Network.h"
 
 @class TagsInteractor;
 
@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<TagsInteractorDelegate> delegate;
 @property (nonatomic, strong, readonly) TagsViewModel * viewModel;
 
-- (instancetype)initWithNetwork:(NSObject<NetworkType> *)network;
+- (instancetype)initWithNetwork:(NSObject<NetworkType> *)network andTagsService:(NSObject<TagsStorageType> *)storageService;
 
 /// New tags will be delivered though the delegate methods
 - (void)requestTags;
