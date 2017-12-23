@@ -132,6 +132,11 @@ NS_ASSUME_NONNULL_BEGIN
     self.viewModel = viewModel;
     [self.delegate interactor:self didUpdateViewModel:self.viewModel];
     
+    // If there state is different than Loaded don't store the tags into disk
+    if (viewModel.state != Loaded) {
+        return;
+    }
+    
     // Store selected tags for later use
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
