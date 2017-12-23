@@ -49,9 +49,19 @@ NS_ASSUME_NONNULL_BEGIN
     
     return [self requestWithURL:url onCompletion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
        
+        if (error) {
+            completion(nil, response, error);
+            return;
+        }
+        
+        if (!data) {
+            completion(@[], response, nil);
+            return;
+        }
+        
         NSError *jsonError;
         JSONArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError];
-        completion(jsonArray, response, error);
+        completion(jsonArray, response, jsonError);
     }];
 }
 

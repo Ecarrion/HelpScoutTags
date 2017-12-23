@@ -21,7 +21,7 @@ static NSString * CellIdentifier = @"TagCell";
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
-
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @property (nonatomic, strong) TagsInteractor *interactor;
 
@@ -95,6 +95,24 @@ static NSString * CellIdentifier = @"TagCell";
     [UIView animateWithDuration:0.2 animations:^{
         [self.view layoutIfNeeded];
     }];
+}
+
+- (void)showRetryableError {
+    UIAlertController *alertControler = [UIAlertController alertControllerWithTitle:@"Oops"
+                                                                            message:@"Something has gone wrong"
+                                                                     preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *continueAction = [UIAlertAction actionWithTitle:@"Continue"
+                                                             style:UIAlertActionStyleCancel
+                                                           handler:^(UIAlertAction *action) {}];
+    UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try Again"
+                                                             style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction *action) {
+                                                               [self.interactor requestTags];
+                                                           }];
+    
+    [alertControler addAction:continueAction];
+    [alertControler addAction:tryAgainAction];
+    [self presentViewController:alertControler animated:true completion:nil];
 }
 
 - (void)dealloc {
@@ -181,6 +199,21 @@ static NSString * CellIdentifier = @"TagCell";
 - (void)interactor:(TagsInteractor *)interactor didUpdateViewModel:(TagsViewModel *)viewModel {
     [self.tableView reloadData];
     [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+    
+    switch (viewModel.state) {
+        case Loading:
+            [self.loadingIndicator startAnimating];
+            break;
+            
+        case Loaded:
+            [self.loadingIndicator stopAnimating];
+            break;
+            
+        case Error:
+            [self.loadingIndicator stopAnimating];
+            [self showRetryableError];
+            break;
+    }
 }
 
 @end

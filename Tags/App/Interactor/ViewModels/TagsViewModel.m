@@ -14,17 +14,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readwrite) NSArray<TagViewModel *> *tagViewModels;
 @property (nonatomic, strong, readwrite) NSArray<TagViewModel *> *selectedViewModels;
+@property (nonatomic, readwrite) State state;
 
 @end
 
 @implementation TagsViewModel
 
-- (instancetype)initWithListedTags:(NSArray<TagViewModel *> *)listedTags fromAllTags:(NSArray<TagViewModel *> *)allTags {
+- (instancetype)initWithListedTags:(NSArray<TagViewModel *> *)listedTags
+                       fromAllTags:(NSArray<TagViewModel *> *)allTags
+                          andState:(State)state {
 
     self = [super init];
     if (self) {
         self.tagViewModels = listedTags;
         self.selectedViewModels = [self selectedAndSortedArrayFrom:allTags];
+        self.state = state;
     }
     return self;
 }

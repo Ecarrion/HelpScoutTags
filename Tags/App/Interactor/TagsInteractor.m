@@ -34,27 +34,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)requestTags {
     
+    // Send a loading ViewModel
+    TagsViewModel *tagsViewModel = [[TagsViewModel alloc] initWithListedTags:@[]
+                                                                 fromAllTags:@[]
+                                                                    andState:Loading];
+    [self updateViewModel:tagsViewModel];
+    
     __weak TagsInteractor *weakSelf = self;
     [self.networkService tagsOnCompletion:^(NSArray<Tag *> * _Nullable tags, NSError * _Nullable error) {
         
         if (error) {
-            // TODO: handle error in view model
+            TagsViewModel *tagsViewModel = [[TagsViewModel alloc] initWithListedTags:@[] fromAllTags:@[] andState:Error];
+            [weakSelf updateViewModel:tagsViewModel];
             return;
         }
         
         // Load previous selected tags
-        NSArray<Tag *> *selectedTags = [self.storageService loadSelectedTags];
+        NSArray<Tag *> *selectedTags = [weakSelf.storageService loadSelectedTags];
         
-        // Create new viewModel
+        // Create new viewModels
         self.tags = [NSMutableArray array];
         for (Tag *tag in tags) {
             Boolean isSelected = [selectedTags containsObject:tag];
             TagViewModel *viewModel = [[TagViewModel alloc] initWithTag:tag isSelected:isSelected];
-            [self.tags addObject:viewModel];
+            [weakSelf.tags addObject:viewModel];
         }
         
-        
-        TagsViewModel *tagsViewModel = [[TagsViewModel alloc] initWithListedTags:self.tags.copy fromAllTags:self.tags.copy];
+        // Send the loaded ViewModel
+        TagsViewModel *tagsViewModel = [[TagsViewModel alloc] initWithListedTags:weakSelf.tags.copy
+                                                                     fromAllTags:weakSelf.tags.copy
+                                                                        andState:Loaded];
         [weakSelf updateViewModel:tagsViewModel];
     }];
 }
@@ -81,7 +90,9 @@ NS_ASSUME_NONNULL_BEGIN
     }
     
     // Update the view model
-    TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithListedTags:listedTags.copy fromAllTags:self.tags.copy];
+    TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithListedTags:listedTags.copy
+                                                                fromAllTags:self.tags.copy
+                                                                   andState:Loaded];
     [self updateViewModel:newViewModel];
 }
 
@@ -98,7 +109,9 @@ NS_ASSUME_NONNULL_BEGIN
     
     // If there is no search query, return a viewModel with all tags
     if (query.length == 0) {
-        TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithListedTags:self.tags.copy fromAllTags:self.tags.copy];
+        TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithListedTags:self.tags.copy
+                                                                    fromAllTags:self.tags.copy
+                                                                       andState:Loaded];
         [self updateViewModel:newViewModel];
         return;
     }
@@ -109,7 +122,9 @@ NS_ASSUME_NONNULL_BEGIN
     
     // Filter tags using a a case insensitive compare
     NSArray<TagViewModel *> *filteredTags = [self.tags filteredArrayUsingPredicate:searchPredicate];
-    TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithListedTags:filteredTags fromAllTags:self.tags.copy];
+    TagsViewModel *newViewModel = [[TagsViewModel alloc] initWithListedTags:filteredTags
+                                                                fromAllTags:self.tags.copy
+                                                                   andState:Loaded];
     [self updateViewModel:newViewModel];
 }
 
