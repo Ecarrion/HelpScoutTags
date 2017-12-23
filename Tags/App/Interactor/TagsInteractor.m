@@ -7,12 +7,15 @@
 //
 
 #import "TagsInteractor.h"
+#import "TagsStorageService.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TagsInteractor ()
 
 @property (nonatomic, strong, readwrite) TagsNetworkService *networkService;
+@property (nonatomic, strong, readwrite) TagsStorageService *storageService;
+
 @property (nonatomic, strong, readwrite) TagsViewModel *viewModel;
 @property (nonatomic, strong, readwrite) NSMutableArray<TagViewModel *> *tags;
 
@@ -24,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
     self = [super init];
     if (self) {
         self.networkService = [[TagsNetworkService alloc] initWithNetwork: network];
+        self.storageService = [[TagsStorageService alloc] init];
     }
     return self;
 }
@@ -38,11 +42,17 @@ NS_ASSUME_NONNULL_BEGIN
             return;
         }
         
+        // Load previous selected tags
+        NSArray<Tag *> *selectedTags = [self.storageService loadSelectedTags];
+        
+        // Create new viewModel
         self.tags = [NSMutableArray array];
         for (Tag *tag in tags) {
-            TagViewModel *viewModel = [[TagViewModel alloc] initWithTag:tag isSelected:false];
+            Boolean isSelected = [selectedTags containsObject:tag];
+            TagViewModel *viewModel = [[TagViewModel alloc] initWithTag:tag isSelected:isSelected];
             [self.tags addObject:viewModel];
         }
+        
         
         TagsViewModel *tagsViewModel = [[TagsViewModel alloc] initWithListedTags:self.tags.copy fromAllTags:self.tags.copy];
         [weakSelf updateViewModel:tagsViewModel];
@@ -106,6 +116,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateViewModel:(TagsViewModel *)viewModel {
     self.viewModel = viewModel;
     [self.delegate interactor:self didUpdateViewModel:self.viewModel];
+    
+    // Store selected tags for later use
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSMutableArray<Tag *> *selectedTags = [NSMutableArray array];
+        for (TagViewModel *tagVM in viewModel.selectedViewModels) {
+            [selectedTags addObject:tagVM.tag];
+        }
+        [self.storageService storeSelectedTags:selectedTags];
+    });
 }
 
 @end

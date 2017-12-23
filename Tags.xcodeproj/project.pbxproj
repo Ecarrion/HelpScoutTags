@@ -28,6 +28,7 @@
 		264389C81FECA4DA00200D48 /* TagCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389C61FECA4DA00200D48 /* TagCollectionCell.m */; };
 		264389C91FECA4DA00200D48 /* TagCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264389C71FECA4DA00200D48 /* TagCollectionCell.xib */; };
 		26ADF5BF1FEE17EC009E8517 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26ADF5BD1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.m */; };
+		26ADF5C21FEE1D19009E8517 /* TagsStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 26ADF5C11FEE1D19009E8517 /* TagsStorageService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		264389C71FECA4DA00200D48 /* TagCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionCell.xib; sourceTree = "<group>"; };
 		26ADF5BD1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICollectionViewLeftAlignedLayout.m; path = "../../../../../../Desktop/UICollectionViewLeftAlignedLayout-master/UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.m"; sourceTree = "<group>"; };
 		26ADF5BE1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICollectionViewLeftAlignedLayout.h; path = "../../../../../../Desktop/UICollectionViewLeftAlignedLayout-master/UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.h"; sourceTree = "<group>"; };
+		26ADF5C01FEE1D19009E8517 /* TagsStorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsStorageService.h; sourceTree = "<group>"; };
+		26ADF5C11FEE1D19009E8517 /* TagsStorageService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsStorageService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +176,8 @@
 			children = (
 				264389991FEA0FAD00200D48 /* TagsNetworkService.h */,
 				2643899A1FEA0FAD00200D48 /* TagsNetworkService.m */,
+				26ADF5C01FEE1D19009E8517 /* TagsStorageService.h */,
+				26ADF5C11FEE1D19009E8517 /* TagsStorageService.m */,
 				2643899F1FEA11CE00200D48 /* Entities */,
 			);
 			path = Services;
@@ -349,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26ADF5C21FEE1D19009E8517 /* TagsStorageService.m in Sources */,
 				264389B51FEB4EFE00200D48 /* TagViewModel.m in Sources */,
 				264389BB1FEB529300200D48 /* UIColor+Hex.m in Sources */,
 				2643899E1FEA11C700200D48 /* Tag.m in Sources */,

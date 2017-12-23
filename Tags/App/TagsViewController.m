@@ -162,6 +162,7 @@ static NSString * CellIdentifier = @"TagCell";
 
 - (void)interactor:(TagsInteractor *)interactor didUpdateViewModel:(TagsViewModel *)viewModel {
     [self.tableView reloadData];
+    [self.collectionView reloadData];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self adjustCollectionViewHeight];

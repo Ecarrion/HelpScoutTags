@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Tag : NSObject
+@interface Tag : NSObject <NSCoding>
 
 @property(nonatomic, strong, readonly) NSNumber *tagID;
 @property(nonatomic, strong, readonly) NSString *color;
