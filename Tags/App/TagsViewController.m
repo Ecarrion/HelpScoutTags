@@ -19,6 +19,8 @@ static NSString * CellIdentifier = @"TagCell";
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
+
 
 @property (nonatomic, strong) TagsInteractor *interactor;
 
@@ -44,6 +46,30 @@ static NSString * CellIdentifier = @"TagCell";
 - (void)registerCellClass {
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
     [self.collectionView registerNib:[UINib nibWithNibName:@"TagCollectionCell" bundle:nil] forCellWithReuseIdentifier:TagCollectionCellID];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self adjustCollectionViewHeight];
+    });
+}
+
+- (void)adjustCollectionViewHeight {
+    
+    CGFloat height = 0;
+    CGFloat sectionInsets = 20;
+    CGFloat contentSizeHeight = self.collectionView.contentSize.height;
+    CGFloat quarterOfScreen = CGRectGetHeight(self.view.frame) / 4.0;
+    
+    if (contentSizeHeight != sectionInsets) {
+        height = MIN(contentSizeHeight, quarterOfScreen);
+    }
+    
+    self.collectionViewHeightConstraint.constant = height;
 }
 
 #pragma mark - TableView Delegates
@@ -125,6 +151,10 @@ static NSString * CellIdentifier = @"TagCell";
 - (void)interactor:(TagsInteractor *)interactor didUpdateViewModel:(TagsViewModel *)viewModel {
     [self.tableView reloadData];
     [self.collectionView reloadData];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self adjustCollectionViewHeight];
+    });
 }
 
 @end
