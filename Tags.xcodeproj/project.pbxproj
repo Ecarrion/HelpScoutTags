@@ -27,8 +27,8 @@
 		264389C31FEC9EBB00200D48 /* TagsInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389C21FEC9EBB00200D48 /* TagsInteractorTests.m */; };
 		264389C81FECA4DA00200D48 /* TagCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 264389C61FECA4DA00200D48 /* TagCollectionCell.m */; };
 		264389C91FECA4DA00200D48 /* TagCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264389C71FECA4DA00200D48 /* TagCollectionCell.xib */; };
-		26ADF5BF1FEE17EC009E8517 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26ADF5BD1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.m */; };
 		26ADF5C21FEE1D19009E8517 /* TagsStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 26ADF5C11FEE1D19009E8517 /* TagsStorageService.m */; };
+		26ADF5C51FEE8042009E8517 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26ADF5C41FEE8042009E8517 /* UICollectionViewLeftAlignedLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,10 +77,10 @@
 		264389C51FECA4DA00200D48 /* TagCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagCollectionCell.h; sourceTree = "<group>"; };
 		264389C61FECA4DA00200D48 /* TagCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagCollectionCell.m; sourceTree = "<group>"; };
 		264389C71FECA4DA00200D48 /* TagCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionCell.xib; sourceTree = "<group>"; };
-		26ADF5BD1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICollectionViewLeftAlignedLayout.m; path = "../../../../../../Desktop/UICollectionViewLeftAlignedLayout-master/UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.m"; sourceTree = "<group>"; };
-		26ADF5BE1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICollectionViewLeftAlignedLayout.h; path = "../../../../../../Desktop/UICollectionViewLeftAlignedLayout-master/UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.h"; sourceTree = "<group>"; };
 		26ADF5C01FEE1D19009E8517 /* TagsStorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsStorageService.h; sourceTree = "<group>"; };
 		26ADF5C11FEE1D19009E8517 /* TagsStorageService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsStorageService.m; sourceTree = "<group>"; };
+		26ADF5C31FEE8042009E8517 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
+		26ADF5C41FEE8042009E8517 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,8 +244,8 @@
 		26ADF5BC1FEE179D009E8517 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				26ADF5BE1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.h */,
-				26ADF5BD1FEE17EB009E8517 /* UICollectionViewLeftAlignedLayout.m */,
+				26ADF5C31FEE8042009E8517 /* UICollectionViewLeftAlignedLayout.h */,
+				26ADF5C41FEE8042009E8517 /* UICollectionViewLeftAlignedLayout.m */,
 			);
 			name = External;
 			path = App/External;
@@ -359,10 +359,10 @@
 				264389BB1FEB529300200D48 /* UIColor+Hex.m in Sources */,
 				2643899E1FEA11C700200D48 /* Tag.m in Sources */,
 				2643899B1FEA0FAD00200D48 /* TagsNetworkService.m in Sources */,
-				26ADF5BF1FEE17EC009E8517 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				264389921FE9F76400200D48 /* TagsViewController.m in Sources */,
 				264389C81FECA4DA00200D48 /* TagCollectionCell.m in Sources */,
 				2643897A1FE9F42100200D48 /* main.m in Sources */,
+				26ADF5C51FEE8042009E8517 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				264389971FE9FF7600200D48 /* Network.m in Sources */,
 				264389B21FEB4D4A00200D48 /* TagsViewModel.m in Sources */,
 				264389AB1FEB48AC00200D48 /* TagsInteractor.m in Sources */,

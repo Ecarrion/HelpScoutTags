@@ -42,12 +42,28 @@ static NSString * CellIdentifier = @"TagCell";
     [super viewDidLoad];
     [self registerCellClass];
     [self configureCollectionView];
+    [self observeCollectionViewContentSize];
     [self.interactor requestTags];
 }
 
 - (void)registerCellClass {
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"TagCollectionCell" bundle:nil] forCellWithReuseIdentifier:TagCollectionCellID];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([TagCollectionCell class]) bundle:nil]
+          forCellWithReuseIdentifier:TagCollectionCellID];
+}
+
+- (void)observeCollectionViewContentSize {
+    [self.collectionView addObserver:self forKeyPath:NSStringFromSelector(@selector(contentSize))
+                             options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)observeValueForKeyPath:(nullable NSString *)keyPath
+                      ofObject:(nullable id)object
+                        change:(nullable NSDictionary<NSKeyValueChangeKey,id> *)change
+                       context:(nullable void *)context {
+    if ([keyPath isEqualToString:NSStringFromSelector(@selector(contentSize))]) {
+        [self adjustCollectionViewHeight];
+    }
 }
 
 - (void)configureCollectionView {
@@ -64,12 +80,6 @@ static NSString * CellIdentifier = @"TagCell";
     return UIStatusBarStyleLightContent;
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self adjustCollectionViewHeight];
-    });
-}
-
 - (void)adjustCollectionViewHeight {
     
     CGFloat height = 0;
@@ -82,6 +92,13 @@ static NSString * CellIdentifier = @"TagCell";
     }
     
     self.collectionViewHeightConstraint.constant = height;
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+- (void)dealloc {
+    [self.collectionView removeObserver:self forKeyPath:NSStringFromSelector(@selector(contentSize))];
 }
 
 #pragma mark - TableView Delegates
@@ -124,7 +141,8 @@ static NSString * CellIdentifier = @"TagCell";
     static TagCollectionCell *sizingCell = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sizingCell = [[[UINib nibWithNibName:@"TagCollectionCell" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
+        sizingCell = [[[UINib nibWithNibName:NSStringFromClass([TagCollectionCell class])
+                                      bundle:nil] instantiateWithOwner:self options:nil] firstObject];
     });
     
     TagViewModel *tagViewModel = self.interactor.viewModel.selectedViewModels[indexPath.row];
@@ -162,11 +180,7 @@ static NSString * CellIdentifier = @"TagCell";
 
 - (void)interactor:(TagsInteractor *)interactor didUpdateViewModel:(TagsViewModel *)viewModel {
     [self.tableView reloadData];
-    [self.collectionView reloadData];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self adjustCollectionViewHeight];
-    });
+    [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
 }
 
 @end
